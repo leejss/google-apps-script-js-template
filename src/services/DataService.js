@@ -6,3 +6,7 @@ export function fetchData() {
 	}
 	return data;
 }
+
+export function getGreeting() {
+	return "Hello, World!";
+}

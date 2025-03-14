@@ -7,19 +7,10 @@
  *
  * @return {Object} The current settings
  */
-function getSettings() {
+export function getSettings() {
 	const properties = PropertiesService.getScriptProperties();
 	const settings = properties.getProperties();
-
-	// Default settings if not already set
-	const defaultSettings = {
-		apiKey: "",
-		refreshInterval: "15",
-		notificationEmail: "",
-	};
-
-	// Merge default with saved settings
-	return { ...defaultSettings, ...settings };
+	return settings;
 }
 
 /**
@@ -27,7 +18,7 @@ function getSettings() {
  *
  * @param {Object} settings - The settings to save
  */
-function saveSettings(settings) {
+export function saveSettings(settings) {
 	if (!settings) return;
 
 	const properties = PropertiesService.getScriptProperties();
@@ -45,13 +36,8 @@ function saveSettings(settings) {
  * @param {string} [defaultValue=''] - Default value if setting is not found
  * @return {string} The setting value
  */
-function getSetting(key, defaultValue = "") {
-	if (!key) return defaultValue;
-
+export function getSetting(key, defaultValue = "") {
 	const properties = PropertiesService.getScriptProperties();
 	const value = properties.getProperty(key);
-
 	return value || defaultValue;
 }
-
-export { getSettings, saveSettings, getSetting };

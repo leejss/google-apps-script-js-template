@@ -75,3 +75,12 @@ export function getWebAppUrl() {
 	const url = service.getUrl();
 	return url;
 }
+
+/**
+ * Gets the OAuth token for the current script execution.
+ * @returns {string} The OAuth token.
+ */
+export function getOAuthToken() {
+	const token = ScriptApp.getOAuthToken();
+	return token;
+}
