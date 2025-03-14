@@ -1,4 +1,4 @@
-# Apps Script JS 템플릿
+# Apps Script JS Template
 
 [clasp](https://github.com/google/clasp)를 사용하여 로컬에서 개발하고 Google Apps Script에 배포할 수 있습니다.
 
