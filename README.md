@@ -1,6 +1,6 @@
-# Apps Script JS Template
+# Apps Script Starter JS Template
 
-[clasp](https://github.com/google/clasp)를 사용하여 로컬에서 개발하고 Google Apps Script에 배포할 수 있습니다.
+이 프로젝트는 로컬 개발 환경으로 Google Apps Script를 사용하여 개발되었습니다. [clasp](https://github.com/google/clasp)를 사용하여 로컬에서 개발하고 Google Apps Script에 배포할 수 있습니다.
 
 ## 개발 환경 설정
 
@@ -41,20 +41,9 @@
    clasp create --title "Apps Script" --rootDir ./src
    ```
 
-## 상세 개발 워크플로우
+## 개발 워크플로우
 
-### 1. 소스 코드 작성
-
-- `src` 디렉토리에 JavaScript 파일을 개발합니다
-
-### 2. 로컬 테스트 및 검증
-
-코드를 Apps Script에 푸시하기 전에:
-
-- .clasp.json 파일 확인 및 rootDir 확인.
-- appsscript.json 파일 확인
-
-### 3. Google Apps Script에 코드 푸시
+### Google Apps Script에 코드 푸시
 
 변경사항을 Google Apps Script에 업로드하세요:
 
@@ -70,7 +59,7 @@ clasp push
 clasp push --watch
 ```
 
-### 4. Google Apps Script 환경에서 테스트
+### Google Apps Script 환경에서 테스트
 
 스크립트 편집기를 열어 구현을 테스트하세요:
 
@@ -87,7 +76,7 @@ clasp open-script
 - 사용될 맥락(스프레드시트, 양식 등)에서 스크립트를 테스트하세요
 - 모든 기능이 실제 데이터로 예상대로 작동하는지 확인하세요
 
-### 5. 버전 관리 및 배포
+### 버전 관리 및 배포
 
 테스트를 통해 모든 것이 올바르게 작동함을 확인한 후:
 
@@ -119,19 +108,6 @@ clasp open-script
    - 액세스 권한을 구성하고 `배포`를 클릭하세요
    - 웹 앱 접속을 위해 생성된 URL을 저장하세요
 
-## 프로젝트 구조
-
-```shell
-neodesk-apps-script/
-├── src/
-│   └── Code.js          # 메인 Apps Script 코드
-├── .claspignore          # 푸시 시 무시할 파일
-├── .clasp.json           # 프로젝트 구성
-├── appsscript.json       # Apps Script 매니페스트
-├── package.json          # 프로젝트 메타데이터 및 스크립트
-└── README.md             # 프로젝트 문서
-```
-
 ## 중요 참고사항
 
 - `.claspignore` 파일은 Apps Script에 푸시해서는 안 되는 파일을 지정합니다
@@ -148,7 +124,24 @@ neodesk-apps-script/
 - **푸시 실패**: `.claspignore` 파일이 올바르게 구성되어 있는지 확인하세요
 - **인증 문제**: `clasp login`을 다시 실행해 보세요
 
+## Secret management
+
+1. PropertiesService 활용
+2. GCP Secret Manager 활용
+
+## .clasp.json
+
+```json
+{
+  "scriptId": "Your Script ID",
+  "rootDir": "dist", // bundled output directory. Default is `dist`
+  "fileExtension": "js",
+  "filePushOrder": [""]
+}
+```
+
 ## 참고 자료
 
 - [Google Apps Script 문서](https://developers.google.com/apps-script)
 - [Clasp GitHub 저장소](https://github.com/google/clasp)
+- [Apps Script 매니페스트](https://developers.google.com/apps-script/manifest)
