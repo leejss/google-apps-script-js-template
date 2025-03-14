@@ -1,0 +1,33 @@
+{
+  "name": "neodesk-apps-script",
+  "version": "1.0.0",
+  "description": "Google Apps Script project for Neodesk",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "build": "rm -rf dist && node scripts/build.js",
+    "login": "clasp login",
+    "create": "clasp create --title \"Apps Script\" --rootDir ./src",
+    "push": "npm run build && clasp push",
+    "push:f": "npm run build && clasp push -f",
+    "watch": "clasp push --watch",
+    "open": "clasp open-script",
+    "pull": "clasp pull",
+    "status": "clasp status",
+    "version": "clasp create-version",
+    "deploy": "clasp create-deployment --description \"Production deployment\"",
+    "list": "clasp list-deployments",
+    "list-versions": "clasp list-versions"
+  },
+  "author": "leejss",
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@google/clasp": "^3.0.1-alpha1",
+    "@types/google-apps-script": "^1.0.97"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-code": "^0.2.37",
+    "dotenv": "^16.4.7",
+    "esbuild": "^0.25.1"
+  }
+}
